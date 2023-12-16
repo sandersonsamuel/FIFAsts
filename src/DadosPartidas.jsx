@@ -77,9 +77,9 @@ function DadosPartidas(){
                                         <td>{`${partida.player1.nome} ${partida.player1.qteGols} x ${partida.player2.qteGols} ${partida.player2.nome}`}</td>
                                         <td>{partida.player1.chutes}</td>
                                         <td>{partida.player2.chutes}</td>
-                                        <td>{partida.player1.posse}</td>
+                                        <td>{partida.player1.posse}%</td>
                                         
-                                        <td>{partida.player2.posse}</td>
+                                        <td>{partida.player2.posse}%</td>
                                         <td>
                                             {partida.player1.qteGols > partida.player2.qteGols ? (<img style={{width:35}} src={p1Win}></img>): partida.player1.qteGols < partida.player2.qteGols ?(<img style={{width:35}} src={p2Win}></img>): (<img style={{width:35}} src={emp}></img>)}
                                         </td>
