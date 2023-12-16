@@ -55,7 +55,7 @@ function DadosPartidas(){
     return(
         <>
             {partidasUsuario? (
-                <div className="p-5 table-responsive">
+                <div className="p-3 p-md-5 table-responsive">
                     <h1 className="mb-4">Dados das partidas</h1>
                     <table className="table">
                             <thead>

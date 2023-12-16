@@ -13,7 +13,7 @@ function NavBar(){
 
     return(
         <>
-            <Navbar expand="lg" bg="light" className="w-100 p-3 px-5 bg-dark text-end justify-content-between">
+            <Navbar expand="lg" bg="light" className="w-100 p-3 my-1 px-5 bg-dark text-end justify-content-between">
                 <div className="d-flex align-items-center gap-3">
                     <img src={auth.currentUser.photoURL} alt="img do usuário" style={{width: 40}}/>
                     <h4 className="m-0">{auth.currentUser.displayName}</h4>

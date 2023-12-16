@@ -16,7 +16,7 @@ function Login(){
 
     return(
         <div className='contLogin d-flex align-items-center flex-column bg-dark text-light'>
-            <img className='mt-5 img-fluid' src={logoFFsts} alt="Logo FIFA STATS escrito" style={{width: 600}} />
+            <img className='mt-5 img-fluid p-5 p-md-0' src={logoFFsts} alt="Logo FIFA STATS escrito" style={{width: 550}} />
             <div className='d-flex justify-content-center align-items-center flex-column mt-5 gap-3'>
                 <h1>Entre com o Google</h1>
                 <button 

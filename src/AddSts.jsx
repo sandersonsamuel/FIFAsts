@@ -140,10 +140,10 @@ function AddSts(){
         <div>
             <div className='bg-dark text-light d-flex flex-column align-items-center pb-5'>
                 <NavBar/>
-                <img src={logoFFsts} alt="Logo do Fifa stats escrito" style={{width:300}} />
+                <img className='my-4' src={logoFFsts} alt="Logo do Fifa stats escrito" style={{width:300}} />
 
-                <form onSubmit={handleSubmit} className='p-5 d-flex flex-column align-items-center'>
-                    <div className="mb-3 px-5 d-flex gap-3">
+                <form onSubmit={handleSubmit} className='p-md-5 d-flex flex-column align-items-center'>
+                    <div className="mb-3 px-3 px-md-5 d-flex gap-3">
                         <div>   
                             <label htmlFor="inputPC" className="form-label">Player 1</label>
                             <input type="text" required onChange={addPlayerC} className="form-control" id="inputPC" aria-describedby="Player Casa"/>
@@ -154,7 +154,7 @@ function AddSts(){
                         </div>
                     </div>
 
-                    <div className="mb-3 px-5 d-flex gap-3">
+                    <div className="mb-3 px-3 px-md-5 d-flex gap-3">
                         <div>   
                             <label htmlFor="inputposseC" className="form-label">Posse Player 1</label>
                             <input type="number" required onChange={addPosseC} className="form-control" id="inputposseC" aria-describedby="Posse de bola"/>
@@ -165,7 +165,7 @@ function AddSts(){
                         </div>
                     </div>
 
-                    <div className="mb-3 px-5 d-flex gap-3">
+                    <div className="mb-3 px-3 px-md-5 d-flex gap-3">
                         <div>   
                             <label htmlFor="inputChutesC" className="form-label">Chutes ao Gol Player 1</label>
                             <input type="number" required onChange={addChutesC} className="form-control" id="inputChutesC" aria-describedby="Chutes ao Gol Casa"/>
@@ -176,7 +176,7 @@ function AddSts(){
                         </div>
                     </div>
 
-                    <div className="mb-3 px-5 d-flex gap-3">
+                    <div className="mb-3 px-3 px-md-5 d-flex gap-3">
                         <div>   
                             <label htmlFor="inputGC" className="form-label">Gols Player 1</label>
                             <input type="number" required onChange={addGolC} className="form-control" id="inputGC" aria-describedby="Gols Casa"/>
