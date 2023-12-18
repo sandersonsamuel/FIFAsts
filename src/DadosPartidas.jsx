@@ -6,6 +6,9 @@ import './DadosPartidas.css'
 import p1Win from './assets/p1_win.svg'
 import p2Win from './assets/p2_win.svg'
 import emp from './assets/em_win.svg'
+import PieChart from "./graphs/PieChart";
+import BarChart from "./graphs/BarChart";
+import Medias from "./Medias";
 
 function DadosPartidas(){
 
@@ -14,6 +17,7 @@ function DadosPartidas(){
 
     const [pesqP1, setPesqP1] = useState("")
     const [pesqP2, setPesqP2] = useState("")
+    
 
 
     function addPesqP1(event){
@@ -72,24 +76,11 @@ function DadosPartidas(){
 
     },[idUserAtual, pesqP1, pesqP2])
 
+    
     return(
         <>
-            <div className="d-flex flex-column pt-5 px-5">                    
-                        <h3 className="text-center">Pesquisar por player</h3>
-
-                        <div className="d-flex gap-4 py-2 justify-content-center align-items-end">
-                            <div>
-                                <label htmlFor="p1Pesq">Player 1:</label>
-                                <input type="text" onChange={addPesqP1} id="p1Pesq" className="form-control" />
-                            </div>
-                            <div>
-                                <label htmlFor="p2Pesq">Player 2:</label>
-                                <input type="text" onChange={addPesqP2} id="p2Pesq" className="form-control" />
-                            </div>
-                        </div>
-            </div>
             {partidasUsuario? (
-                <div className="p-3 px-md-5 pb-md-5 table-responsive">
+                <div className="p-3 px-md-5 pb-md-5 mt-5 table-responsive">
                     <h1 className="mb-4">Dados das partidas</h1>
 
                     <table className="table text-capitalize">
@@ -130,6 +121,35 @@ function DadosPartidas(){
                     <img src={logoFS} alt="logo FS" id="imgLogoFs" className="mt-4" style={{width: 250}} />
                 </div>
             )}
+
+            <div className="d-flex justify-content-center gap-5">
+                <div className="d-flex flex-column card mt-3 p-5 bg-dark text-light">
+                    <h3 className="text-center">Pesquisa por player</h3>
+
+                    <div className="d-flex gap-4 py-2 justify-content-center align-items-end">
+                        <div>
+                            <label htmlFor="p1Pesq">Player 1:</label>
+                            <input type="text" onChange={addPesqP1} id="p1Pesq" className="form-control" />
+                        </div>
+                        <div>
+                            <label htmlFor="p2Pesq">Player 2:</label>
+                            <input type="text" onChange={addPesqP2} id="p2Pesq" className="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+                <Medias partidasUser={partidasUsuario}/>
+
+            </div>
+
+            <div className="d-flex gap-4 m-3 align-item justify-content-center">
+                <div className="d-flex flex-column p-5 text-center card mt-3 align-items-center justify-content-center">  
+                        <PieChart partidasUser={partidasUsuario}/>                  
+                </div>
+                <div className="d-flex flex-column p-5 text-center card mt-3 align-items-center justify-content-center">  
+                        <BarChart partidasUser={partidasUsuario}/>                
+                </div>
+            </div>
         </>
     )
 }

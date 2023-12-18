@@ -35,27 +35,33 @@ function AddSts(){
     }
 
     function addGolC(event){
-        setGolC(event.target.value)
+        const golNumber = Number(event.target.value)
+        setGolC(golNumber)
     }
 
     function addGolF(event){
-        setGolF(event.target.value)
+        const golNumber = Number(event.target.value)
+        setGolF(golNumber)
     }
 
     function addPosseC(event){
-        setPosseC(event.target.value)
+        const posseNumber = Number(event.target.value)
+        setPosseC(posseNumber)
     }
 
     function addPosseF(event){
-        setPosseF(event.target.value)
+        const posseNumber = Number(event.target.value)
+        setPosseF(posseNumber)
     }
 
     function addChutesC(event) {
-        setChutesC(event.target.value)
+        const chutesNumber = Number(event.target.value)
+        setChutesC(chutesNumber)
     }
 
     function addChutesF(event) {
-        setChutesF(event.target.value)
+        const chutesNumber = Number(event.target.value)
+        setChutesF(chutesNumber)
     }
 
     /* function addNomeGolsC(event){
