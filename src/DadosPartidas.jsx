@@ -12,6 +12,20 @@ function DadosPartidas(){
     const [partidasUsuario, setPartidasUsuario] = useState(null)
     const idUserAtual = auth.currentUser.uid
 
+    const [pesqP1, setPesqP1] = useState("")
+    const [pesqP2, setPesqP2] = useState("")
+
+
+    function addPesqP1(event){
+        setPesqP1(event.target.value)
+        console.log(pesqP1);
+    }
+
+    function addPesqP2(event){
+        setPesqP2(event.target.value)
+        console.log(pesqP2);
+    }
+
     function deletePartida(partidaId){
         const database = getDatabase();
         const partidaRef = ref(database, `partida/${partidaId}`)
@@ -35,9 +49,15 @@ function DadosPartidas(){
                 return { id: partidaId, ...partidaData };
             });
 
-            const partidasFiltradas = partidasComID.filter(
-                (partida) => partida.idUser === idUserAtual
-            );
+            let partidasFiltradas = partidasComID.filter((partida) => partida.idUser === idUserAtual);
+
+            if (pesqP1.trim() !== "") {
+                partidasFiltradas = partidasFiltradas.filter((partida) => partida.player1.nome.toLowerCase().includes(pesqP1.toLowerCase()));
+            }
+
+            if (pesqP2.trim() !== "") {
+                partidasFiltradas = partidasFiltradas.filter((partida) => partida.player2.nome.toLowerCase().includes(pesqP2.toLowerCase()));
+            }
 
             if (partidasFiltradas.length > 0){
                 setPartidasUsuario(partidasFiltradas)
@@ -50,14 +70,29 @@ function DadosPartidas(){
             off(partidaRef);
         };
 
-    },[idUserAtual])
+    },[idUserAtual, pesqP1, pesqP2])
 
     return(
         <>
+            <div className="d-flex flex-column pt-5 px-5">                    
+                        <h3 className="text-center">Pesquisar por player</h3>
+
+                        <div className="d-flex gap-4 py-2 justify-content-center align-items-end">
+                            <div>
+                                <label htmlFor="p1Pesq">Player 1:</label>
+                                <input type="text" onChange={addPesqP1} id="p1Pesq" className="form-control" />
+                            </div>
+                            <div>
+                                <label htmlFor="p2Pesq">Player 2:</label>
+                                <input type="text" onChange={addPesqP2} id="p2Pesq" className="form-control" />
+                            </div>
+                        </div>
+            </div>
             {partidasUsuario? (
-                <div className="p-3 p-md-5 table-responsive">
+                <div className="p-3 px-md-5 pb-md-5 table-responsive">
                     <h1 className="mb-4">Dados das partidas</h1>
-                    <table className="table">
+
+                    <table className="table text-capitalize">
                             <thead>
                                 <tr className="text-center">
                                     <th scope="col">Data e Hora</th>
@@ -91,7 +126,7 @@ function DadosPartidas(){
               </div>
             ):(
                 <div className="p-5 d-flex flex-column align-items-center">
-                    <h1 className="text-center">Não há partidas cadastradas...</h1>
+                    <h1 className="text-center">Não há partidas...</h1>
                     <img src={logoFS} alt="logo FS" id="imgLogoFs" className="mt-4" style={{width: 250}} />
                 </div>
             )}

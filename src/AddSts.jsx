@@ -25,11 +25,13 @@ function AddSts(){
     const [nomesGolsF, setNomesGolF] = useState([]) */
 
     function addPlayerC(event){
-        setPlayerC(event.target.value)
+        const lowercaseP1 = event.target.value.toLowerCase();
+        setPlayerC(lowercaseP1)
     }
 
     function addPlayerF(event){
-        setPlayerF(event.target.value)
+        const lowercaseP2 = event.target.value.toLowerCase();
+        setPlayerF(lowercaseP2)
     }
 
     function addGolC(event){
