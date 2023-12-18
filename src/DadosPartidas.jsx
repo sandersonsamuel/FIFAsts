@@ -81,7 +81,7 @@ function DadosPartidas(){
                                         
                                         <td>{partida.player2.posse}%</td>
                                         <td>
-                                            {partida.player1.qteGols > partida.player2.qteGols ? (<img style={{width:35}} src={p1Win}></img>): partida.player1.qteGols < partida.player2.qteGols ?(<img style={{width:35}} src={p2Win}></img>): (<img style={{width:35}} src={emp}></img>)}
+                                        {parseInt(partida.player1.qteGols, 10) > parseInt(partida.player2.qteGols, 10) ? (<img style={{ width: 35 }} src={p1Win} alt="Player 1 Wins" />) : parseInt(partida.player1.qteGols, 10) < parseInt(partida.player2.qteGols, 10) ? (<img style={{ width: 35 }} src={p2Win} alt="Player 2 Wins" />) : (<img style={{ width: 35 }} src={emp} alt="Draw" />)}
                                         </td>
                                         <td><button onClick={()=> deletePartida(partida.id)} className="btn btn-danger btn-sm"><i className="fa-solid fa-trash"></i></button></td>
                                     </tr>
