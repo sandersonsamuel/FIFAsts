@@ -34,7 +34,7 @@ function PieChart({partidasUser}) {
 
   return (
     <>
-      <div className='chart p-3 d-flex flex-column gap-3'>
+      <div className='chart p-1 d-flex flex-column gap-3'>
         <Chart options={options} series={series} type='pie' width="350"></Chart>
         <h4 className='text-md'>VP1: {p1Win} | VP2: {p2Win} | Empate:{empate}</h4>
       </div>
