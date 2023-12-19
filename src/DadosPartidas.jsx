@@ -9,6 +9,7 @@ import emp from './assets/em_win.svg'
 import PieChart from "./graphs/PieChart";
 import BarChart from "./graphs/BarChart";
 import Medias from "./Medias";
+import './App.css'
 
 function DadosPartidas(){
 
@@ -122,8 +123,8 @@ function DadosPartidas(){
                 </div>
             )}
 
-            <div className="d-flex justify-content-center gap-5">
-                <div className="d-flex flex-column card mt-3 p-5 bg-dark text-light">
+            <div className="d-md-flex justify-content-center gap-5 m-2 m-md-0">
+                <div className="d-flex flex-column card mt-3 p-3 p-md-5 bg-dark text-light">
                     <h3 className="text-center">Pesquisa por player</h3>
 
                     <div className="d-flex gap-4 py-2 justify-content-center align-items-end">
@@ -142,11 +143,11 @@ function DadosPartidas(){
 
             </div>
 
-            <div className="d-flex gap-4 m-3 align-item justify-content-center">
-                <div className="d-flex flex-column p-5 text-center card mt-3 align-items-center justify-content-center">  
+            <div className="d-md-flex gap-4 m-3 align-item justify-content-center">
+                <div className="d-flex flex-column p-md-5 text-center card mt-3 align-items-center justify-content-center">  
                         <PieChart partidasUser={partidasUsuario}/>                  
                 </div>
-                <div className="d-flex flex-column p-5 text-center card mt-3 align-items-center justify-content-center">  
+                <div className="d-flex flex-column p-md-5 text-center card mt-3 align-items-center justify-content-center">  
                         <BarChart partidasUser={partidasUsuario}/>                
                 </div>
             </div>

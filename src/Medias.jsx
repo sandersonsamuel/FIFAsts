@@ -14,18 +14,21 @@ function Medias({partidasUser}){
     }
 
     const [mediasP1, setMediasP1] = useState({})
-    let sg1 = 0
-    let fPP1 = 0
-    let gPP1 = 0
-    let pPP1 = 0
 
     const [mediasP2, setMediasP2] = useState({})
-    let sg2 = 0
-    let fPP2 = 0
-    let gPP2 = 0
-    let pPP2 = 0
+    
 
     useEffect(()=>{
+        let sg2 = 0
+        let fPP2 = 0
+        let gPP2 = 0
+        let pPP2 = 0
+        
+        let sg1 = 0
+        let fPP1 = 0
+        let gPP1 = 0
+        let pPP1 = 0
+
         if (partidasUser){
             const lengthPartidas = Object.keys(partidasUser).length
 
@@ -61,8 +64,8 @@ function Medias({partidasUser}){
 
     return (
         <>
-            <div className="d-flex gap-4">
-                    <div className="d-flex flex-column card mt-3 p-5 mediaP1">
+            <div className="d-flex gap-4 align-items-center justify-content-center">
+                    <div className="d-flex flex-column card mt-3 p-3 p-md-5 mediaP1 text-light">
                         <h3 className="text-center">Médias P1</h3>
                         <div className="d-flex gap-1 py-2 justify-content-center flex-column text-start">
                             <h6>Saldo de Gols: {typeof mediasP1.sg === 'number' ? mediasP1.sg.toFixed(2) : '-'}</h6>
@@ -72,7 +75,7 @@ function Medias({partidasUser}){
                         </div>
                     </div>
 
-                    <div className="d-flex flex-column card mt-3 p-5 mediaP2 text-light">
+                    <div className="d-flex flex-column card mt-3 p-3 p-md-5 mediaP2 text-light">
                         <h3 className="text-center">Médias P2</h3>
                         <div className="d-flex gap-1 py-2 justify-content-center flex-column text-start">
                             <h6>Saldo de Gols: {typeof mediasP2.sg === 'number' ? mediasP2.sg.toFixed(2) : '-'}</h6>

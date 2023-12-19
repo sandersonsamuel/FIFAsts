@@ -29,10 +29,22 @@ function BarChart({partidasUser}) {
       categories: ['Player 1', 'Player 2'],
       labels: {
         style: {
-          fontSize: '16px', // Tamanho da fonte das categorias
+          fontSize: '16px',
         },
       }
     },
+    responsive: [
+      {
+        breakpoint: 480,
+        options: {
+          
+          chart: {
+            width: '100%'
+          }
+        }
+      }
+    ],
+      
     series: [{name: 'Chutes ao Gol', data: [chutesGolP1, chutesGolP2]}, {name: 'Gols', data: [golsP1, golsP2]}],
     
   }
@@ -40,8 +52,8 @@ function BarChart({partidasUser}) {
   return (
     <>
       <div className='chart p-3 d-flex flex-column gap-3'>
-        <Chart options={options} series={options.series} type='bar' width="400"></Chart>
-        <h4>Aproveitamento: P1: {((golsP1 / chutesGolP1)*100).toFixed(2)}% | P2: {((golsP2 / chutesGolP2)*100).toFixed(2)}% </h4>
+        <Chart className="graficoBar" options={options} series={options.series} type='bar' width="500"></Chart>
+        <h4 className='text-md'>Apv: P1: {((golsP1 / chutesGolP1)*100).toFixed(2)}% | P2: {((golsP2 / chutesGolP2)*100).toFixed(2)}% </h4>
       </div>
     </>
   )
