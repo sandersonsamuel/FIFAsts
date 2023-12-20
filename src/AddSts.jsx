@@ -6,6 +6,7 @@ import { getDatabase, ref, push } from 'firebase/database';
 import 'firebase/compat/database';
 import { auth } from './configs/FireBase';
 import DadosPartidas from './DadosPartidas';
+import Alerta from './modals/Alerta';
 
 function AddSts(){
 
@@ -21,8 +22,7 @@ function AddSts(){
     const [chutesC, setChutesC] = useState(0)
     const [chutesF, setChutesF] = useState(0)
 
-    /* const [nomesGolsC, setNomesGolC] = useState([])
-    const [nomesGolsF, setNomesGolF] = useState([]) */
+    const [alertaTxt, setAlertaTxt] = useState(null)
 
     function addPlayerC(event){
         const lowercaseP1 = event.target.value.toLowerCase();
@@ -64,15 +64,15 @@ function AddSts(){
         setChutesF(chutesNumber)
     }
 
-    /* function addNomeGolsC(event){
-        let newNomes = [...nomesGolsC, event.target.value]
-        setNomesGolC(newNomes)
+    function setAlerta(text){
+        if (!alertaTxt) {
+            setAlertaTxt(text);
+    
+            setTimeout(() => {
+                setAlertaTxt(null)
+            }, 3000)
+        }
     }
-
-    function addNomeGolsF(event){
-        let newNomes = [...nomesGolsF, event.target.value]
-        setNomesGolF(newNomes)
-    } */
 
     function limparInputs(){
 
@@ -85,32 +85,33 @@ function AddSts(){
         setGolC('')
         setGolF('')
         
-        document.getElementById("inputPC").value = "" // Limpar Player Casa
-        document.getElementById("inputPF").value = "" // Limpar Player Fora
-        document.getElementById("inputposseC").value = "" // Limpar Posse Casa
-        document.getElementById("inputposseF").value = "" // Limpar Posse Fora
-        document.getElementById("inputChutesC").value = "" // Limpar Chutes ao Gol Casa
-        document.getElementById("inputChutesF").value = "" // Limpar Chutes ao Gol Fora
-        document.getElementById("inputGC").value = "" // Limpar Gols Casa
-        document.getElementById("inputGF").value = "" // Limpar Gols Fora
+        document.getElementById("inputPC").value = ""
+        document.getElementById("inputPF").value = ""
+        document.getElementById("inputposseC").value = "" 
+        document.getElementById("inputposseF").value = "" 
+        document.getElementById("inputChutesC").value = "" 
+        document.getElementById("inputChutesF").value = ""
+        document.getElementById("inputGC").value = "" 
+        document.getElementById("inputGF").value = "" 
     }
 
     const handleSubmit = (event) => {
 
-        event.preventDefault();
+        event.preventDefault()
 
-        const database = getDatabase();
+        const database = getDatabase()
 
-        const dataAtual = new Date();
-        const dia = dataAtual.getDate();
-        const mes = dataAtual.getMonth() + 1;
-        const ano = dataAtual.getFullYear();
+        const dataAtual = new Date()
+        const dia = dataAtual.getDate()
+        const mes = dataAtual.getMonth() + 1
+        const ano = dataAtual.getFullYear()
 
-        const hora = dataAtual.getHours();
-        const minutos = dataAtual.getMinutes();
-        const segundos = dataAtual.getSeconds();
+        const hora = dataAtual.getHours()
+        const minutos = dataAtual.getMinutes()
+        
+        const segundos = dataAtual.getSeconds()
 
-        const dataFormatada = `${dia}/${mes}/${ano} ${hora}:${minutos}:${segundos}`;
+        const dataFormatada = `${dia}/${mes}/${ano} ${hora < 10? '0'+ hora: hora}:${minutos < 10? '0'+ minutos: minutos}:${segundos < 10? '0'+ segundos: segundos}`;
 
 
         const statsPartida = {
@@ -133,19 +134,26 @@ function AddSts(){
             }
         }
 
-        push(ref(database, 'partida'), statsPartida)
-        .then(() => {
-            console.log("enviado com sucesso!")
-            limparInputs()
-        }).catch((error)=>{
-            console.error("Não foi possível fazer o post", error)
-        });
+        if (posseC + posseF != 100){
+            setAlerta("A soma da posse de bola deve ser 100%")
+        }else if (chutesC < golC || chutesF < golF){
+            setAlerta("Existem mais gols que chutes")
+        }else{
+            push(ref(database, 'partida'), statsPartida)
+            .then(() => {
+                console.log("enviado com sucesso!")
+                limparInputs()
+            }).catch((error)=>{
+                console.error("Não foi possível fazer o post", error)
+            })
+        }
 
 
     }
     
     return(
         <div>
+            <Alerta text={alertaTxt ? alertaTxt : null} />
             <div className='bg-dark text-light d-flex flex-column align-items-center pb-5'>
                 <NavBar/>
                 <img className='my-4' src={logoFFsts} alt="Logo do Fifa stats escrito" style={{width:300}} />
@@ -199,47 +207,6 @@ function AddSts(){
 
                 </form>
 
-                {/* <div className='d-flex'>
-                    <div className='d-flex flex-column'>
-                        {
-                            Array.from({ length: golC }, (_, index) => (
-                                    <div key={index} className="mb-3 px-5">
-                                        <div>
-                                            <label htmlFor={`inputGC-${index}`} className='form-label'>Jogador Gol Casa {index+1}</label>
-                                            <input
-                                                onBlurCapture={addNomeGolsC}
-                                                type="text"
-                                                className="form-control"
-                                                id={`inputGC-${index}`}
-                                                aria-describedby="Player Casa"
-                                            />
-                                        </div>
-                                    </div>
-                                )
-                            )
-                        }
-                    </div>
-
-                    <div className='d-flex flex-column'>
-                        {
-                            Array.from({ length: golF }, (_, index) => (
-                                    <div key={index} className="mb-3 px-5">
-                                        <div>
-                                            <label htmlFor={`inputGF-${index}`} className='form-label d-flex flex-column'>Jogador Gol Fora {index+1}</label>
-                                            <input
-                                                onChange={addNomeGolsF}
-                                                type="text"
-                                                className="form-control"
-                                                id={`inputGF-${index}`}
-                                                aria-describedby="Player Casa"
-                                            />
-                                        </div>
-                                    </div>
-                                )
-                            )
-                        }
-                    </div>
-                </div> */}
             </div>
             <DadosPartidas/>
         </div>
