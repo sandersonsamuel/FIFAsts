@@ -97,7 +97,7 @@ function DadosPartidas(){
                                         
                                         <td>{partida.player2.posse}%</td>
                                         <td>
-                                        {parseInt(partida.player1.qteGols, 10) > parseInt(partida.player2.qteGols, 10) ? (<img style={{ width: 35 }} src={p1Win} alt="Player 1 Wins" />) : parseInt(partida.player1.qteGols, 10) < parseInt(partida.player2.qteGols, 10) ? (<img style={{ width: 35 }} src={p2Win} alt="Player 2 Wins" />) : (<img style={{ width: 35 }} src={emp} alt="Draw" />)}
+                                        {parseInt(partida.player1.qteGols, 10) > parseInt(partida.player2.qteGols, 10) ? (<img style={{ width: 30 }} src={p1Win} alt="Player 1 Wins" />) : parseInt(partida.player1.qteGols, 10) < parseInt(partida.player2.qteGols, 10) ? (<img style={{ width: 30 }} src={p2Win} alt="Player 2 Wins" />) : (<img style={{ width: 30 }} src={emp} alt="Draw" />)}
                                         </td>
                                         <td>
                                             <DeleteModal partidaId={partida.id}/>
