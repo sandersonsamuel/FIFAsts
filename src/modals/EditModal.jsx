@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Modal from 'react-bootstrap/Modal';
 import AddSts from "../AddSts";
-import './App.css'
+import '../App.css'
 
 function EditModal({partida}) {
 
@@ -14,7 +14,7 @@ function EditModal({partida}) {
         <>
             <button onClick={showModal} className="btn btn-sm btn-primary"><i className="fa-solid fa-pen-to-square"></i></button>
 
-            <Modal show={show} onHide={closeModal} className="d-flex justify-content-center align-items-center bg-blur">
+                <Modal show={show} onHide={closeModal} className="d-flex justify-content-center align-items-center bg-blur">
                 <Modal.Header closeButton>
                     <Modal.Title>Editar Partida</Modal.Title>
                 </Modal.Header>
