@@ -4,13 +4,7 @@ import './App.css'
 function Medias({partidasUser}){
 
     if (!partidasUser){
-        return(
-            <>
-                <div className="d-flex flex-column card mt-3 p-5">
-                    <h3>Sem Partidas Cadastradas</h3>
-                </div>
-            </>
-        )
+        return null
     }
 
     const [mediasP1, setMediasP1] = useState({})

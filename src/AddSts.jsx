@@ -3,6 +3,7 @@ import './App.css'
 import { getDatabase, update, ref, push } from 'firebase/database';
 import 'firebase/compat/database';
 import { auth } from './configs/FireBase';
+import Alerta from './modals/Alerta';
 
 function AddSts({metodo, partida, closeModal}){
 
@@ -189,7 +190,8 @@ function AddSts({metodo, partida, closeModal}){
     }
     
     return(
-        <div>
+        <div className='d-flex justify-content-center'>
+            <Alerta text={alertaTxt}/>
             {!metodo? (
                 <form onSubmit={handleSubmit} className='p-md-5 d-flex flex-column align-items-center'>
                 <div className="mb-3 px-3 px-md-5 d-flex gap-3">

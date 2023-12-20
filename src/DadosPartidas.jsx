@@ -138,12 +138,10 @@ function DadosPartidas(){
             </div>
 
             <div className="d-md-flex gap-4 m-3 align-item justify-content-center">
-                <div className="d-flex flex-column p-md-5 text-center card mt-3 align-items-center justify-content-center">  
-                        <PieChart partidasUser={partidasUsuario}/>                  
-                </div>
-                <div className="d-flex flex-column p-md-5 text-center card mt-3 align-items-center justify-content-center">  
-                        <BarChart partidasUser={partidasUsuario}/>                
-                </div>
+                  
+                <PieChart partidasUser={partidasUsuario}/>   
+                <BarChart partidasUser={partidasUsuario}/>               
+                
             </div>
         </>
     )

@@ -4,7 +4,7 @@ import Chart from 'react-apexcharts';
 function BarChart({partidasUser}) {
 
   if (!partidasUser) {
-    return <h3>Sem Partidas Cadastradas</h3>;
+    return null
   }
 
   let chutesGolP1 = 0
@@ -50,12 +50,12 @@ function BarChart({partidasUser}) {
   }
 
   return (
-    <>
+    <div className="d-flex flex-column p-md-5 text-center card mt-3 align-items-center justify-content-center">                                          
       <div className='chart p-1 d-flex flex-column gap-3'>
         <Chart className="graficoBar" options={options} series={options.series} type='bar' width="400"></Chart>
         <h4 className='text-md'>Apv: P1: {((golsP1 / chutesGolP1)*100).toFixed(2)}% | P2: {((golsP2 / chutesGolP2)*100).toFixed(2)}% </h4>
       </div>
-    </>
+    </div>
   )
 }
 
