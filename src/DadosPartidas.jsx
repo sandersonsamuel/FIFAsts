@@ -10,6 +10,7 @@ import PieChart from "./graphs/PieChart";
 import BarChart from "./graphs/BarChart";
 import Medias from "./Medias";
 import './App.css'
+import DeleteModal from "./modals/DeleteModal";
 
 function DadosPartidas(){
 
@@ -19,7 +20,7 @@ function DadosPartidas(){
     const [pesqP1, setPesqP1] = useState("")
     const [pesqP2, setPesqP2] = useState("")
     
-
+    const [modal, setModal] = useState(false)
 
     function addPesqP1(event){
         setPesqP1(event.target.value)
@@ -29,18 +30,6 @@ function DadosPartidas(){
     function addPesqP2(event){
         setPesqP2(event.target.value)
         console.log(pesqP2);
-    }
-
-    function deletePartida(partidaId){
-        const database = getDatabase();
-        const partidaRef = ref(database, `partida/${partidaId}`)
-
-        remove(partidaRef)
-        .then(()=>{
-            console.log("Partida removida com sucesso!");
-        }).catch((error)=>{
-            console.log(error)
-        })
     }
 
     useEffect(()=>{
@@ -110,7 +99,9 @@ function DadosPartidas(){
                                         <td>
                                         {parseInt(partida.player1.qteGols, 10) > parseInt(partida.player2.qteGols, 10) ? (<img style={{ width: 35 }} src={p1Win} alt="Player 1 Wins" />) : parseInt(partida.player1.qteGols, 10) < parseInt(partida.player2.qteGols, 10) ? (<img style={{ width: 35 }} src={p2Win} alt="Player 2 Wins" />) : (<img style={{ width: 35 }} src={emp} alt="Draw" />)}
                                         </td>
-                                        <td><button onClick={()=> deletePartida(partida.id)} className="btn btn-danger btn-sm"><i className="fa-solid fa-trash"></i></button></td>
+                                        <td>
+                                            <DeleteModal partidaId={partida.id}/>
+                                        </td>
                                     </tr>
                                 </tbody>
                             ))}
