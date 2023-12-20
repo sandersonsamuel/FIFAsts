@@ -11,6 +11,7 @@ import BarChart from "./graphs/BarChart";
 import Medias from "./Medias";
 import './App.css'
 import DeleteModal from "./modals/DeleteModal";
+import EditModal from "./modals/EditModal";
 
 function DadosPartidas(){
 
@@ -19,8 +20,6 @@ function DadosPartidas(){
 
     const [pesqP1, setPesqP1] = useState("")
     const [pesqP2, setPesqP2] = useState("")
-    
-    const [modal, setModal] = useState(false)
 
     function addPesqP1(event){
         setPesqP1(event.target.value)
@@ -84,6 +83,7 @@ function DadosPartidas(){
                                     <th scope="col">Posse P2</th>
                                     <th scope="col">Resultado</th>
                                     <th scope="col">Deletar</th>
+                                    <th scope="col">Editar</th>
                                 </tr>
                             </thead>
                             {partidasUsuario.map((partida, index)=>(
@@ -101,6 +101,9 @@ function DadosPartidas(){
                                         </td>
                                         <td>
                                             <DeleteModal partidaId={partida.id}/>
+                                        </td>
+                                        <td>
+                                            <EditModal partida={partida}/>
                                         </td>
                                     </tr>
                                 </tbody>

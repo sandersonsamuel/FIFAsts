@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import AddSts from './AddSts'
 import { auth } from './configs/FireBase'
 import './App.css'
 import Login from './Login'
+import Home from './Home'
 
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
       {
         user === null? (
           <Login/>
-        ): (<AddSts/>)
+        ): (<Home/>)
       }
     </>
   )

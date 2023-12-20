@@ -16,6 +16,10 @@
     background-color: #fc1c24;
 }
 
+.bg-blur{
+    backdrop-filter: blur(2px);
+}
+
 @media screen and (max-width: 400px) {
     .graficoBar{
         width: 350px;
