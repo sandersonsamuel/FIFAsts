@@ -114,7 +114,7 @@ function DadosPartidas(){
                 </div>
             )}
 
-            <div className="d-md-flex justify-content-center gap-5 m-2 m-md-0">
+            <div className="d-lg-flex justify-content-center gap-5 m-2 m-lg-0">
                 <div className="d-flex flex-column card mt-3 p-3 p-md-5 bg-dark text-light">
                     <h3 className="text-center">Pesquisa por player</h3>
 
