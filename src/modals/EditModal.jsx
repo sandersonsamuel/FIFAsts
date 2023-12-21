@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Modal from 'react-bootstrap/Modal';
-import AddSts from "../AddSts";
+import AddSts from "../components/AddSts";
 import '../App.css'
 
 function EditModal({partida}) {

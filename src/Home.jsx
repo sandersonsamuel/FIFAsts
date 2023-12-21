@@ -1,12 +1,10 @@
-import { useState } from 'react'
 import './App.css'
-import NavBar from './NavBar'
+import NavBar from './components/NavBar'
 import logoFFsts from './assets/LOGO_FFsts.svg'
 import 'firebase/compat/database';
-import DadosPartidas from './DadosPartidas';
-import Alerta from './modals/Alerta';
-import AddSts from './AddSts';
-import Footer from './Footer';
+import DadosPartidas from './components/DadosPartidas';
+import AddSts from './components/AddSts';
+import Footer from './components/Footer';
 
 function Home(){
     

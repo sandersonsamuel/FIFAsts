@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import './App.css'
+import '../App.css'
 import { getDatabase, update, ref, push } from 'firebase/database';
 import 'firebase/compat/database';
-import { auth } from './configs/FireBase';
-import Alerta from './modals/Alerta';
+import { auth } from '../configs/FireBase';
+import Alerta from '../modals/Alerta';
 
 function AddSts({metodo, partida, closeModal}){
 
@@ -288,7 +288,8 @@ function AddSts({metodo, partida, closeModal}){
                 </div>
             </div>
 
-            <button className='btn btn-primary w-50'>Enviar Partida</button>
+            <p className='small'>Preencha apenas o que quiser mudar</p>
+            <button className='btn btn-primary w-50'>Salvar Alterações</button>
 
         </form>
             )}

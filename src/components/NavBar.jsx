@@ -1,5 +1,5 @@
 import { Navbar } from "react-bootstrap"
-import { auth } from "./configs/FireBase"
+import { auth } from "../configs/FireBase"
 import { signOut } from 'firebase/auth'
 function NavBar(){
 

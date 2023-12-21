@@ -1,17 +1,16 @@
-import { auth, database } from "./configs/FireBase"
+import { auth} from "../configs/FireBase"
 import { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue, off, remove } from 'firebase/database';
-import logoFS from './assets/LOGO_MIN_FS.svg'
-import './DadosPartidas.css'
-import p1Win from './assets/p1_win.svg'
-import p2Win from './assets/p2_win.svg'
-import emp from './assets/em_win.svg'
-import PieChart from "./graphs/PieChart";
-import BarChart from "./graphs/BarChart";
+import logoFS from '../assets/LOGO_MIN_FS.svg'
+import '../DadosPartidas.css'
+import p1Win from '../assets/p1_win.svg'
+import p2Win from '../assets/p2_win.svg'
+import emp from '../assets/em_win.svg'
+import PieChart from "../graphs/PieChart";
+import BarChart from "../graphs/BarChart";
 import Medias from "./Medias";
-import './App.css'
-import DeleteModal from "./modals/DeleteModal";
-import EditModal from "./modals/EditModal";
+import DeleteModal from "../modals/DeleteModal";
+import EditModal from "../modals/EditModal";
 
 function DadosPartidas(){
 
@@ -117,7 +116,7 @@ function DadosPartidas(){
                 </div>
             )}
 
-            <div className="d-lg-flex justify-content-center gap-5 m-2 m-lg-0">
+            <div className="d-lg-flex justify-content-center gap-5 m-2">
                 <div className="d-flex flex-column card mt-3 p-3 p-md-5 bg-dark text-light">
                     <h3 className="text-center">Pesquisa por player</h3>
 

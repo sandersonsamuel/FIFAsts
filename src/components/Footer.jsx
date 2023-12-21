@@ -1,4 +1,4 @@
-import LogoFFsts from './assets/LOGO_FFsts.svg'
+import LogoFFsts from '../assets/LOGO_FFsts.svg'
 
 function Footer(){
 

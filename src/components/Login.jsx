@@ -1,7 +1,7 @@
-import './App.css'
-import { auth, googleProvider } from './configs/FireBase.jsx'
+import '../App.css'
+import { auth, googleProvider } from '../configs/FireBase.jsx'
 import { signInWithPopup } from 'firebase/auth'
-import logoFFsts from './assets/LOGO_FFsts.svg'
+import logoFFsts from '../assets/LOGO_FFsts.svg'
 
 function Login(){
 
