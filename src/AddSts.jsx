@@ -193,47 +193,48 @@ function AddSts({metodo, partida, closeModal}){
         <div className='d-flex justify-content-center'>
             <Alerta text={alertaTxt}/>
             {!metodo? (
-                <form onSubmit={handleSubmit} className='p-md-5 d-flex flex-column align-items-center'>
+            <form onSubmit={handleSubmit} className='p-md-3 d-flex flex-column align-items-center'>
+                    <h3>Registrar Partida</h3>
                 <div className="mb-3 px-3 px-md-5 d-flex gap-3">
                     <div>   
-                        <label htmlFor="inputPC" className="form-label">Player 1</label>
+                        <label htmlFor="inputPC" className="form-label">Nome P1</label>
                         <input type="text" required onChange={addPlayerC} className="form-control" id="inputPC" aria-describedby="Player Casa"/>
                     </div>
                     <div>   
-                        <label htmlFor="inputPF" className="form-label">Player 2</label>
+                        <label htmlFor="inputPF" className="form-label">Nome P2</label>
                         <input type="text" required onChange={addPlayerF} className="form-control" id="inputPF" aria-describedby="Player Casa"/>
                     </div>
                 </div>
 
                 <div className="mb-3 px-3 px-md-5 d-flex gap-3">
                     <div>   
-                        <label htmlFor="inputposseC" className="form-label">Posse Player 1</label>
+                        <label htmlFor="inputposseC" className="form-label">Posse de Bola P1</label>
                         <input type="number" required onChange={addPosseC} className="form-control" id="inputposseC" aria-describedby="Posse de bola"/>
                     </div>
                     <div>   
-                        <label htmlFor="inputposseF" className="form-label">Posse Player 2</label>
+                        <label htmlFor="inputposseF" className="form-label">Posse de Bola P2</label>
                         <input type="number" required onChange={addPosseF} className="form-control" id="inputposseF" aria-describedby="Posse de bola"/>
                     </div>
                 </div>
 
                 <div className="mb-3 px-3 px-md-5 d-flex gap-3">
                     <div>   
-                        <label htmlFor="inputChutesC" className="form-label">Chutes ao Gol Player 1</label>
+                        <label htmlFor="inputChutesC" className="form-label">Chutes ao Gol P1</label>
                         <input type="number" required onChange={addChutesC} className="form-control" id="inputChutesC" aria-describedby="Chutes ao Gol Casa"/>
                     </div>
                     <div>   
-                        <label htmlFor="inputChutesF" className="form-label">Chutes ao Gol Player 2</label>
+                        <label htmlFor="inputChutesF" className="form-label">Chutes ao Gol P2</label>
                         <input type="number" required onChange={addChutesF} className="form-control" id="inputChutesF" aria-describedby="Chutes ao Gol Fora"/>
                     </div>
                 </div>
 
                 <div className="mb-3 px-3 px-md-5 d-flex gap-3">
                     <div>   
-                        <label htmlFor="inputGC" className="form-label">Gols Player 1</label>
+                        <label htmlFor="inputGC" className="form-label">Gols P1</label>
                         <input type="number" required onChange={addGolC} className="form-control" id="inputGC" aria-describedby="Gols Casa"/>
                     </div>
                     <div>   
-                        <label htmlFor="inputGF" className="form-label">Gols Player 2</label>
+                        <label htmlFor="inputGF" className="form-label">Gols P2</label>
                         <input type="number" required onChange={addGolF} className="form-control" id="inputGF" aria-describedby="Gols Fora"/>
                     </div>
                 </div>

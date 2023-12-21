@@ -13,10 +13,11 @@ function Medias({partidasUser}){
     
 
     useEffect(()=>{
-        let sg2 = 0
-        let fPP2 = 0
-        let gPP2 = 0
-        let pPP2 = 0
+
+        let sg2 = 0 //saldo de gols
+        let fPP2 = 0 //finalização por partida
+        let gPP2 = 0 //gols por parida
+        let pPP2 = 0 //média de posse de bola
         
         let sg1 = 0
         let fPP1 = 0
@@ -24,6 +25,7 @@ function Medias({partidasUser}){
         let pPP1 = 0
 
         if (partidasUser){
+
             const lengthPartidas = Object.keys(partidasUser).length
 
             partidasUser.forEach(partidas => {
@@ -42,7 +44,8 @@ function Medias({partidasUser}){
                 sg: sg1,
                 fPP: fPP1,
                 gPP: gPP1,
-                pPP: pPP1
+                pPP: pPP1,
+                cPM: fPP1/gPP1 //chutes para marcar
                 
               })
 
@@ -50,7 +53,8 @@ function Medias({partidasUser}){
                 sg: sg2,
                 fPP: fPP2,
                 gPP: gPP2,
-                pPP: pPP2
+                pPP: pPP2,
+                cPM: fPP2/gPP2
                 
               })
         }
@@ -66,6 +70,7 @@ function Medias({partidasUser}){
                             <h6>Finalizações p/Partida: {typeof mediasP1.fPP === 'number' ? mediasP1.fPP.toFixed(2) : '-'}</h6>
                             <h6>Gols p/partida: {typeof mediasP1.gPP === 'number' ? mediasP1.gPP.toFixed(2) : '-'}</h6>
                             <h6>Média de posse: {typeof mediasP1.pPP === 'number' ? mediasP1.pPP.toFixed(2) : '-'}%</h6>
+                            <h6>Chutes para marcar: {typeof mediasP1.cPM === 'number' ? mediasP1.cPM.toFixed(2) : '-'}</h6>
                         </div>
                     </div>
 
@@ -76,6 +81,7 @@ function Medias({partidasUser}){
                             <h6>Finalizações p/Partida: {typeof mediasP2.fPP === 'number' ? mediasP2.fPP.toFixed(2) : '-'}</h6>
                             <h6>Gols p/partida: {typeof mediasP2.gPP === 'number' ? mediasP2.gPP.toFixed(2) : '-'}</h6>
                             <h6>Média de posse: {typeof mediasP2.pPP === 'number' ? mediasP2.pPP.toFixed(2) : '-'}%</h6>
+                            <h6>Chutes para marcar: {typeof mediasP2.cPM === 'number' ? mediasP2.cPM.toFixed(2) : '-'}</h6>
                         </div>
                     </div>
                 </div>
