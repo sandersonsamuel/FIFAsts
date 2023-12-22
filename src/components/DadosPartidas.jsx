@@ -80,7 +80,7 @@ function DadosPartidas(){
                                     <th scope="col">Chutes P2</th>
                                     <th scope="col">Posse P1</th>
                                     <th scope="col">Posse P2</th>
-                                    <th scope="col">Resultado</th>
+                                    <th scope="col">Vencedor</th>
                                     <th scope="col">Editar</th>
                                     <th scope="col">Deletar</th>
                                 </tr>
