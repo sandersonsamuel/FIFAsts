@@ -11,6 +11,7 @@ import BarChart from "../graphs/BarChart";
 import Medias from "./Medias";
 import DeleteModal from "../modals/DeleteModal";
 import EditModal from "../modals/EditModal";
+import '../App.css'
 
 function DadosPartidas(){
 
@@ -195,7 +196,9 @@ function DadosPartidas(){
                             <label htmlFor="datePesqF">Data Final: </label>
                             <input type="date" id="datePesqF" onChange={addDataFin} className="form-control" />
                         </div>
-                        <button className="w-50 btn btn-danger mt-2 mt-md-0"><i onClick={clearDates} className="fa-solid fa-delete-left"></i></button>
+
+                        <button style={{maxWidth: 80}} className="w-50 btn btn-danger mt-2 mt-md-0"><i onClick={clearDates} className="fa-solid fa-delete-left"></i></button>
+                        
                     </div>
                     
                 </div>
