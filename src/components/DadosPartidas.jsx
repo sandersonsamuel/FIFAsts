@@ -169,7 +169,7 @@ function DadosPartidas(){
 
             <div className="d-lg-flex justify-content-center gap-5 m-2">
                 <div className="d-flex flex-column card mt-3 p-3 p-md-5 bg-dark text-light">
-                    <h5 className="text-center m-0">Filtragem por player</h5>
+                    <h5 className="text-center m-0">Filtrar por player</h5>
 
                     <div className="d-flex gap-4 py-2 justify-content-center align-items-end">
                         <div>
@@ -184,7 +184,7 @@ function DadosPartidas(){
 
                     <hr />
 
-                    <h5 className="text-center m-0">Filtragem por Data</h5>
+                    <h5 className="text-center m-0">Filtrar por Data</h5>
 
                     <div className="d-md-flex gap-4 py-2 justify-content-center align-items-end">
                         <div>
