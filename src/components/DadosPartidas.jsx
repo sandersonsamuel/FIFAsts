@@ -81,8 +81,8 @@ function DadosPartidas(){
                                     <th scope="col">Posse P1</th>
                                     <th scope="col">Posse P2</th>
                                     <th scope="col">Resultado</th>
-                                    <th scope="col">Deletar</th>
                                     <th scope="col">Editar</th>
+                                    <th scope="col">Deletar</th>
                                 </tr>
                             </thead>
                             {partidasUsuario.map((partida, index)=>(
@@ -99,10 +99,10 @@ function DadosPartidas(){
                                         {parseInt(partida.player1.qteGols, 10) > parseInt(partida.player2.qteGols, 10) ? (<img style={{ width: 30 }} src={p1Win} alt="Player 1 Wins" />) : parseInt(partida.player1.qteGols, 10) < parseInt(partida.player2.qteGols, 10) ? (<img style={{ width: 30 }} src={p2Win} alt="Player 2 Wins" />) : (<img style={{ width: 30 }} src={emp} alt="Draw" />)}
                                         </td>
                                         <td>
-                                            <DeleteModal partidaId={partida.id}/>
+                                            <EditModal partida={partida}/>
                                         </td>
                                         <td>
-                                            <EditModal partida={partida}/>
+                                            <DeleteModal partidaId={partida.id}/>
                                         </td>
                                     </tr>
                                 </tbody>
