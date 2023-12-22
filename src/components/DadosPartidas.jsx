@@ -20,15 +20,36 @@ function DadosPartidas(){
     const [pesqP1, setPesqP1] = useState("")
     const [pesqP2, setPesqP2] = useState("")
 
+    const [dataIni, setDataIni] = useState([])
+    const [dataFin, setDataFin] = useState([])
+
     function addPesqP1(event){
         setPesqP1(event.target.value)
-        console.log(pesqP1);
     }
 
     function addPesqP2(event){
         setPesqP2(event.target.value)
-        console.log(pesqP2);
     }
+
+    function addDataIni(event) {
+        const dataCrua = event.target.value
+        const [dia, mes, ano] = dataCrua.split('-').reverse()
+        setDataIni([Number(dia), Number(mes), Number(ano)])
+    }
+
+    function addDataFin(event) {
+        const dataCrua = event.target.value
+        const [dia, mes, ano] = dataCrua.split('-').reverse()
+        setDataFin([Number(dia), Number(mes), Number(ano)])
+    }
+
+    function clearDates(){
+        document.getElementById('datePesqI').value = ''
+        document.getElementById('datePesqF').value = ''
+        setDataFin([])
+        setDataIni([])
+    }
+
 
     useEffect(()=>{
         const database = getDatabase();
@@ -41,7 +62,18 @@ function DadosPartidas(){
                 return { id: partidaId, ...partidaData };
             });
 
-            let partidasFiltradas = partidasComID.filter((partida) => partida.idUser === idUserAtual);
+            let partidasFiltradas = partidasComID.filter((partida) => partida.idUser === idUserAtual)
+
+            let partidasComDateFormat = partidasFiltradas.map((partida) => {
+                const [data, hora] = partida.datePartida.split(' ');
+                const [dia, mes, ano] = data.split('/');
+                const dateFormat = [Number(dia), Number(mes), Number(ano)];
+            
+                return {
+                    ...partida,
+                    dateFormat: dateFormat,
+                };
+            });
 
             if (pesqP1.trim() !== "") {
                 partidasFiltradas = partidasFiltradas.filter((partida) => partida.player1.nome.toLowerCase().includes(pesqP1.toLowerCase()));
@@ -49,6 +81,25 @@ function DadosPartidas(){
 
             if (pesqP2.trim() !== "") {
                 partidasFiltradas = partidasFiltradas.filter((partida) => partida.player2.nome.toLowerCase().includes(pesqP2.toLowerCase()));
+            }
+
+            if (dataIni.length === 3) {
+                partidasFiltradas = partidasComDateFormat.filter(
+                    (partida) =>
+                        partida.dateFormat[0] >= dataIni[0] &&
+                        partida.dateFormat[1] >= dataIni[1] &&
+                        partida.dateFormat[2] >= dataIni[2]
+                );
+            }
+
+            if (dataFin.length === 3) {
+
+                partidasFiltradas = partidasComDateFormat.filter(
+                    (partida) =>
+                        partida.dateFormat[2] <= dataFin[2] &&
+                        partida.dateFormat[1] <= dataFin[1] &&
+                        partida.dateFormat[0] <= dataFin[0]
+                )
             }
 
             if (partidasFiltradas.length > 0){
@@ -62,7 +113,7 @@ function DadosPartidas(){
             off(partidaRef);
         };
 
-    },[idUserAtual, pesqP1, pesqP2])
+    },[idUserAtual, pesqP1, pesqP2, dataIni, dataFin])
 
     
     return(
@@ -118,7 +169,7 @@ function DadosPartidas(){
 
             <div className="d-lg-flex justify-content-center gap-5 m-2">
                 <div className="d-flex flex-column card mt-3 p-3 p-md-5 bg-dark text-light">
-                    <h3 className="text-center">Pesquisa por player</h3>
+                    <h5 className="text-center m-0">Filtragem por player</h5>
 
                     <div className="d-flex gap-4 py-2 justify-content-center align-items-end">
                         <div>
@@ -130,6 +181,23 @@ function DadosPartidas(){
                             <input type="text" onChange={addPesqP2} id="p2Pesq" className="form-control" />
                         </div>
                     </div>
+
+                    <hr />
+
+                    <h5 className="text-center m-0">Filtragem por Data</h5>
+
+                    <div className="d-md-flex gap-4 py-2 justify-content-center align-items-end">
+                        <div>
+                            <label htmlFor="datePesqI">Data inicial: </label>
+                            <input type="date" id="datePesqI" onChange={addDataIni} className="form-control" />
+                        </div>
+                        <div>
+                            <label htmlFor="datePesqF">Data Final: </label>
+                            <input type="date" id="datePesqF" onChange={addDataFin} className="form-control" />
+                        </div>
+                        <button className="w-50 btn btn-danger mt-2 mt-md-0"><i onClick={clearDates} className="fa-solid fa-delete-left"></i></button>
+                    </div>
+                    
                 </div>
 
                 <Medias partidasUser={partidasUsuario}/>

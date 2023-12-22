@@ -62,7 +62,7 @@ function Medias({partidasUser}){
 
     return (
         <>
-            <div className="d-flex gap-4 align-items-center justify-content-center">
+            <div className="d-flex gap-2 gap-md-4 align-items-center justify-content-center">
                     <div className="d-flex flex-column card mt-3 p-3 p-md-5 mediaP1 text-light">
                         <h3 className="text-center">Médias P1</h3>
                         <div className="d-flex gap-1 py-2 justify-content-center flex-column text-start">
