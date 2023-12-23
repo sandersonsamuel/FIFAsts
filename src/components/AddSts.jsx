@@ -247,44 +247,44 @@ function AddSts({metodo, partida, closeModal}){
             <div className="mb-3 px-3 px-md-5 d-flex gap-3">
                 <div>   
                     <label htmlFor="inputPC" className="form-label">Player 1</label>
-                    <input type="text" onChange={addPlayerC} className="form-control" id="inputPC" aria-describedby="Player Casa"/>
+                    <input type="text" placeholder={partida.player1.nome} onChange={addPlayerC} className="form-control" id="inputPC" aria-describedby="Player Casa"/>
                 </div>
                 <div>   
                     <label htmlFor="inputPF" className="form-label">Player 2</label>
-                    <input type="text" onChange={addPlayerF} className="form-control" id="inputPF" aria-describedby="Player Casa"/>
+                    <input type="text" placeholder={partida.player2.nome} onChange={addPlayerF} className="form-control" id="inputPF" aria-describedby="Player Casa"/>
                 </div>
             </div>
 
             <div className="mb-3 px-3 px-md-5 d-flex gap-3">
                 <div>   
                     <label htmlFor="inputposseC" className="form-label">Posse Player 1</label>
-                    <input type="number" onChange={addPosseC} className="form-control" id="inputposseC" aria-describedby="Posse de bola"/>
+                    <input type="number" placeholder={partida.player1.posse} onChange={addPosseC} className="form-control" id="inputposseC" aria-describedby="Posse de bola"/>
                 </div>
                 <div>   
                     <label htmlFor="inputposseF" className="form-label">Posse Player 2</label>
-                    <input type="number" onChange={addPosseF} className="form-control" id="inputposseF" aria-describedby="Posse de bola"/>
+                    <input type="number" placeholder={partida.player2.posse} onChange={addPosseF} className="form-control" id="inputposseF" aria-describedby="Posse de bola"/>
                 </div>
             </div>
 
             <div className="mb-3 px-3 px-md-5 d-flex gap-3">
                 <div>   
                     <label htmlFor="inputChutesC" className="form-label">Chutes ao Gol Player 1</label>
-                    <input type="number" onChange={addChutesC} className="form-control" id="inputChutesC" aria-describedby="Chutes ao Gol Casa"/>
+                    <input type="number" placeholder={partida.player1.chutes} onChange={addChutesC} className="form-control" id="inputChutesC" aria-describedby="Chutes ao Gol Casa"/>
                 </div>
                 <div>   
                     <label htmlFor="inputChutesF" className="form-label">Chutes ao Gol Player 2</label>
-                    <input type="number" onChange={addChutesF} className="form-control" id="inputChutesF" aria-describedby="Chutes ao Gol Fora"/>
+                    <input type="number" placeholder={partida.player2.chutes} onChange={addChutesF} className="form-control" id="inputChutesF" aria-describedby="Chutes ao Gol Fora"/>
                 </div>
             </div>
 
             <div className="mb-3 px-3 px-md-5 d-flex gap-3">
                 <div>   
                     <label htmlFor="inputGC" className="form-label">Gols Player 1</label>
-                    <input type="number" onChange={addGolC} className="form-control" id="inputGC" aria-describedby="Gols Casa"/>
+                    <input type="number" placeholder={partida.player1.qteGols} onChange={partida.player1.qteGols} className="form-control" id="inputGC" aria-describedby="Gols Casa"/>
                 </div>
                 <div>   
                     <label htmlFor="inputGF" className="form-label">Gols Player 2</label>
-                    <input type="number" onChange={addGolF} className="form-control" id="inputGF" aria-describedby="Gols Fora"/>
+                    <input type="number" placeholder={partida.player2.qteGols} onChange={addGolF} className="form-control" id="inputGF" aria-describedby="Gols Fora"/>
                 </div>
             </div>
 
