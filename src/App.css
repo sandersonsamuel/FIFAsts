@@ -29,3 +29,9 @@ td{
         width: 350px;
     }
 }
+
+@media screen and (max-width: 375px) {
+    .graficoBar{
+        width: 300px;
+    }
+}
