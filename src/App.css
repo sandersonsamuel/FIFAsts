@@ -35,3 +35,13 @@ td{
         width: 300px;
     }
 }
+
+@media screen and (max-width: 330px) {
+    .graficoBar{
+        width: 280px;
+    }
+}
+
+.h4{
+    font-size: medium;
+}
