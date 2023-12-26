@@ -12,7 +12,7 @@ function Home(){
         <div>
             <div className='bg-dark text-light d-flex flex-column align-items-center pb-5'>
                 <NavBar/>
-                <img className='my-4' src={logoFFsts} alt="Logo do Fifa stats escrito" style={{width:300}} />
+                <img className='my-4 img-fluid' src={logoFFsts} alt="Logo do Fifa stats escrito" style={{width:250}} />
                 <AddSts/>
             </div>
             <DadosPartidas/>
